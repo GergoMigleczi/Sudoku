@@ -1,0 +1,223 @@
+:root{
+    --border-color: #ABC4AA;
+    --hover-border-color: #97b096;
+    --active-cell: rgba(171, 196, 170,0.6);
+    --highlighted-cell: rgba(171, 196, 170,0.2)
+}
+.pointer{
+    cursor: pointer;
+}
+.site-max-width{
+    width: 80%;
+    max-width: 860px;
+    margin: 0px auto;
+}
+
+/*
+/////BACK GROUNDS ///////////////
+*/
+.secondary-bg{
+    background-color: #ABC4AA;
+}
+
+.mistakes-bg{
+    background-color: #ABC4AA;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/*
+/////GAME ///////////////
+*/
+.game-box-width{
+    width: 34rem;
+}
+.max-game-box-width{
+    max-width: 34rem;
+}
+.sudoku-cell{
+    width: 3.75rem!important;
+    height: 3.75rem!important;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 2.1rem;
+    color: rgb(103, 93, 80);
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+#game-box{
+    border: 2px solid var(--border-color);
+}
+
+.filled{
+    background-color: white;
+}
+.lg-border-bottom{
+    border-bottom: 2px solid var(--border-color);
+}
+.lg-border-left{
+    border-left: 3px solid var(--border-color);
+}
+.pencil-row{
+    height: 1.2rem;
+}
+.pencil-sm-cell{
+    width: 1rem;
+    height: 1rem;
+    padding: 0px;
+    margin: 0px;
+    font-size: 0.9rem;
+    color: #675D50;
+    box-sizing: border-box;
+    display: none;
+}
+.pencil-cell{
+    height: 3.4rem;
+}
+    /*Active Box*/
+.active-cell{
+    background-color: var(--active-cell);
+}
+.highlighted-cell{
+    background-color: var(--highlighted-cell);
+
+}
+.p-start{
+    transform: translateX(-100%);
+}
+.p-center, .p-end, .p-start{
+    position: absolute;
+}
+.p-end{
+    transform: translateX(100%);
+}
+/*
+/////PENCIL BUTTON ///////////////
+*/
+#pencil-div{
+    font-size: 2rem;
+    width: 5rem; /* 8rem when on */
+    transition: width 250ms ease;
+    border: 3px solid var(--border-color);
+    color: white;
+
+}
+#pencil-on{
+    display: none;
+}
+/*
+/////DIGITS ///////////////
+*/
+.digit-btn{
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+    color: white;
+    border: 3px solid var(--border-color);
+}
+.digit-btn:hover, #pencil-div:hover{
+    background-color: #97b096;
+    color: white;
+    border: 3px solid var(--hover-border-color);
+
+}
+.level-input{
+    border: 3px solid #ABC4AA;
+    color: white;
+    font-size: 1.2rem;
+    width: 7.5rem;
+}
+.active-level{
+    border: 3px solid #675D50!important;
+}
+
+
+#time-box{
+    width: 90px;
+}
+
+@media screen and (max-width: 1000px) {
+    .site-max-width{
+        width: 95%;
+    }
+}
+@media screen and (max-width: 861px) {
+    html{
+        font-size: 85%;
+    }
+}
+@media screen and (max-width: 725px) {
+    html{
+        font-size: 76%;
+    }
+}
+@media screen and (max-width: 650px) {
+    .sudoku-cell{
+        font-size: 1.9rem;
+    }
+    #game-and-digits{
+        flex-wrap: wrap;
+        justify-content: center!important;
+    }
+    #mistake-and-timer, #levels, #pencil-box{
+        margin: 0px auto;
+    }
+    #digits{
+        width: 34rem;
+        margin-top: 1rem;
+    }
+    #flex-digits{
+        display: flex;
+        justify-content: space-between;
+        width: 34rem;
+    }
+    #pencil-div{
+        font-size: 1.5rem;
+        width: 4rem;
+    }
+    .digit-btn{
+        width: 3.2rem;
+        height: 3.5rem;
+        font-size: 1.75rem;
+        padding: 0px;
+        text-align: center
+    }
+    #time-box{
+        width: 75px;
+    }
+    #levels{
+        padding-top: 2.5rem;
+    }
+    #pencil-box{
+        padding-bottom: 0.7rem;
+    }
+}
+@media screen and (max-width: 460px) {
+    html{
+        font-size: 72%;
+    }
+    .lg-border-bottom{
+        border-bottom: 1px solid var(--border-color);
+    }
+    .lg-border-left{
+        border-left: 2px solid var(--border-color);
+    }
+}
+@media screen and (max-width: 431px) {
+    html{
+        font-size: 66%;
+    }
+    #time-box{
+        width: 65px;
+    }
+}
+@media screen and (max-width: 361px) {
+    html{
+        font-size: 52%;
+    }
+    #levels{
+        padding-top: 2rem;
+    }
+}

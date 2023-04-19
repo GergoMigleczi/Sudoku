@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" charset="UTF-8">
+        <link rel="stylesheet"  href="./libs/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet"  href="./libs/node_modules/bootstrap-icons/font/bootstrap-icons.css"/>
+        <link rel="icon" type="image/x-icon" href="./libs/media/favicon.png" /> 
+        <link rel="stylesheet"  href="./libs/css/index.css"/>
+
+    </head>
+    <body>
+        <main class="pt-5">
+            <section class="site-max-width">
+                <div id="mistake-and-timer" class="d-flex pb-2 game-box-width justify-content-between">
+                    <div class="d-flex align-items-center mistakes-bg px-3 py-1 rounded">
+                        <p class="pe-1 m-0 py-0">Mistakes:</p>
+                        <p id="mistakes" class="m-0 p-0">0</p>
+                    </div>
+                    <div id="time-box" class="d-flex align-items-center justify-content-between mistakes-bg pe-3 ps-2 py-1 rounded">
+                        <i class="bi bi-stopwatch pe-2"></i>
+                        <p id="time" class="m-0 p-0">0:00</p>
+                    </div>
+                </div>
+                <!--PENCIL -->  
+                <div id="game-and-digits" class="d-flex justify-content-between">
+                    <div id="game-box" class="max-game-box-width">
+                        <div class="d-flex"> <!--ROW 1-->
+                            <div id="game-cell-1" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                <div class="pencil-cell">
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                        <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                        <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                        <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                        <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                        <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                        <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="game-cell-2" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                <div class="pencil-cell">
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                        <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                        <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                        <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                        <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                        <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                        <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                    </div>
+                                </div>
+                            </div><div id="game-cell-3" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                <div class="pencil-cell">
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                        <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                        <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                        <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                        <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                        <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                        <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                    </div>
+                                </div>
+                            </div><div id="game-cell-4" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                                <div class="pencil-cell">
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                        <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                        <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                        <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                        <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                        <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                        <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                    </div>
+                                </div>
+                            </div><div id="game-cell-5" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                <div class="pencil-cell">
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                        <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                        <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                        <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                        <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                        <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                        <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                    </div>
+                                </div>
+                            </div><div id="game-cell-6" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                <div class="pencil-cell">
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                        <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                        <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                        <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                        <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                        <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                        <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                    </div>
+                                </div>
+                            </div><div id="game-cell-7" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                                <div class="pencil-cell">
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                        <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                        <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                        <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                        <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                        <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                        <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                    </div>
+                                </div>
+                            </div><div id="game-cell-8" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                <div class="pencil-cell">
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                        <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                        <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                        <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                        <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                        <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                        <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                    </div>
+                                </div>
+                            </div><div id="game-cell-9" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                <div class="pencil-cell">
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                        <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                        <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                        <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                        <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pencil-row">
+                                        <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                        <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                        <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                    </div>
+                                </div>
+                            </div>              
+                        </div>
+                        <div class="d-flex"> <!--ROW 2-->
+                            <div id="game-cell-10" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-11" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-12" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-13" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-14" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-15" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-16" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-17" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-18" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div>              
+                                    </div>
+                        <div class="d-flex lg-border-bottom"> <!--ROW 3-->
+                            <div id="game-cell-19" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-20" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-21" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-22" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-23" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-24" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-25" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-26" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-27" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div>              
+                                    </div>
+                        <div class="d-flex"> <!--ROW 4-->
+                            <div id="game-cell-28" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-29" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-30" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-31" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-32" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-33" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-34" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-35" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-36" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div>              
+                                    </div>
+                        <div class="d-flex"> <!--ROW 5-->
+                            <div id="game-cell-37" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-38" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-39" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-40" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-41" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-42" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-43" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-44" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-45" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div>              
+                                    </div>
+                        <div class="d-flex lg-border-bottom"> <!--ROW 6-->
+                            <div id="game-cell-46" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-47" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-48" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-49" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-50" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-51" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-52" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-53" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-54" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div>              
+                                    </div>
+                        <div class="d-flex"> <!--ROW 7-->
+                            <div id="game-cell-55" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-56" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-57" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-58" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-59" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-60" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-61" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-62" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-63" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div>              
+                                    </div>
+                        <div class="d-flex"> <!--ROW 8-->
+                            <div id="game-cell-64" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-65" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-66" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-67" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-68" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-69" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-70" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-71" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div><div id="game-cell-72" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                    </div>              
+                                    </div>
+                        <div class="d-flex"> <!--ROW 9-->
+                            <div id="game-cell-73" class="sudoku-cell d-flex align-items-center justify-content-center">
+                        <div class="pencil-cell">
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                            </div>
+                            <div class="d-flex justify-content-center pencil-row">
+                                <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                            </div>
+                        </div>
+                                </div><div id="game-cell-74" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                    <div class="pencil-cell">
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                            <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                            <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                            <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                            <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                            <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                            <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                        </div>
+                                    </div>
+                                </div><div id="game-cell-75" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                    <div class="pencil-cell">
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                            <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                            <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                            <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                            <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                            <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                            <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                        </div>
+                                    </div>
+                                </div><div id="game-cell-76" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                                    <div class="pencil-cell">
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                            <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                            <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                            <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                            <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                            <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                            <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                        </div>
+                                    </div>
+                                </div><div id="game-cell-77" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                    <div class="pencil-cell">
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                            <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                            <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                            <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                            <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                            <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                            <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                        </div>
+                                    </div>
+                                </div><div id="game-cell-78" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                    <div class="pencil-cell">
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                            <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                            <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                            <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                            <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                            <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                            <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                        </div>
+                                    </div>
+                                </div><div id="game-cell-79" class="sudoku-cell d-flex align-items-center justify-content-center lg-border-left">
+                                    <div class="pencil-cell">
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                            <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                            <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                            <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                            <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                            <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                            <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                        </div>
+                                    </div>
+                                </div><div id="game-cell-80" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                    <div class="pencil-cell">
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                            <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                            <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                            <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                            <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                            <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                            <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                        </div>
+                                    </div>
+                                </div><div id="game-cell-81" class="sudoku-cell d-flex align-items-center justify-content-center">
+                                    <div class="pencil-cell">
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-1 align-items-center justify-content-center p-start">1</div>
+                                            <div class="pencil-sm-cell p-c-2 align-items-center justify-content-center p-center">2</div>
+                                            <div class="pencil-sm-cell p-c-3 align-items-center justify-content-center p-end">3</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-4 align-items-center justify-content-center p-start">4</div>
+                                            <div class="pencil-sm-cell p-c-5 align-items-center justify-content-center p-center">5</div>
+                                            <div class="pencil-sm-cell p-c-6 align-items-center justify-content-center p-end">6</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center pencil-row">
+                                            <div class="pencil-sm-cell p-c-7 align-items-center justify-content-center p-start">7</div>
+                                            <div class="pencil-sm-cell p-c-8 align-items-center justify-content-center p-center">8</div>
+                                            <div class="pencil-sm-cell p-c-9 align-items-center justify-content-center p-end">9</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>  
+                    <!--BUTTONS -->  
+                    <div id="digits" >
+                        <div id="pencil-box">
+                            <div id="pencil-div" class="d-flex justify-content-center align-items-center rounded-pill secondary-bg m-1 py-1 pointer" value="off">
+                                <i class="bi bi-pencil mx-2"></i>
+                                <div id="pencil-on" class=" mx-2">ON</div>
+                            </div>
+                        </div>
+                        <div id="flex-digits">
+                            <div class="d-flex ">
+                                <button class="digit-btn rounded secondary-bg m-1" value="1">1</button>
+                                <button class="digit-btn rounded secondary-bg m-1" value="2">2</button>
+                                <button class="digit-btn rounded secondary-bg m-1" value="3">3</button>
+                            </div>
+                            <div class="d-flex ">
+                                <button class="digit-btn rounded secondary-bg m-1" value="4">4</button>
+                                <button class="digit-btn rounded secondary-bg m-1" value="5">5</button>
+                                <button class="digit-btn rounded secondary-bg m-1" value="6">6</button>
+                            </div>
+                            <div class="d-flex ">
+                                <button class="digit-btn rounded secondary-bg m-1" value="7">7</button>
+                                <button class="digit-btn rounded secondary-bg m-1" value="8">8</button>
+                                <button class="digit-btn rounded secondary-bg m-1" value="9">9</button>
+                            </div>
+                        </div>
+                        <!--
+                            <div class="mt-5">
+                            <div class="d-flex justify-content-between">
+                                <button id="easy" value="easy" class="secondary-bg rounded py-2 px-3 m-1 level-input">Easy</button>
+                                <button id="medium" value="medium" class="secondary-bg rounded py-2 px-3 m-1 level-input">Medium</button>
+                            </div>
+                            <di class="d-flex justify-content-between">
+                                <button id="hard" value="hard" class="secondary-bg rounded py-2 px-3 m-1 level-input">Hard</button>
+                                <button id="expert" value="expert" class="secondary-bg rounded py-2 px-3 m-1 level-input">Expert</button>
+                            </div>
+                        </div>
+                        -->
+                        
+                    </div>
+                </div>
+                <div id="levels" class="d-flex justify-content-between game-box-width mt-3">
+                    <button id="easy" value="easy" class="secondary-bg rounded py-2 px-3 m-1 level-input">Easy</button>
+                    <button id="medium" value="medium" class="secondary-bg rounded py-2 px-3 m-1 level-input">Medium</button>
+                    <button id="hard" value="hard" class="secondary-bg rounded py-2 px-3 m-1 level-input">Hard</button>
+                    <button id="expert" value="expert" class="secondary-bg rounded py-2 px-3 m-1 level-input">Expert</button>
+                </div>
+            </section>
+        </main>
+        <script src="./libs/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="./libs/js/app.js"></script>
+    </body>
+</html>
