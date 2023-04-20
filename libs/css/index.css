@@ -137,7 +137,13 @@
 #time-box{
     width: 90px;
 }
-
+/*
+/////SUCCESS MODAL ///////////////
+*/
+#solvedPuzzleModal .level-input{
+    width: auto;
+    font-size: 1rem;
+}
 @media screen and (max-width: 1000px) {
     .site-max-width{
         width: 95%;
@@ -211,6 +217,13 @@
     }
     #time-box{
         width: 65px;
+    }
+    #solvedPuzzleModal{
+        font-size: 140%;
+    }
+    #solvedPuzzleModalLabel{
+        font-size: 130%!important;
+
     }
 }
 @media screen and (max-width: 361px) {

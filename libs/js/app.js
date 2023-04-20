@@ -63,17 +63,19 @@ function getSudoku(level){
             return response;
     }).then((response) => response.json())
       .then((data) => {
-            console.log(data);
             if(document.querySelector(".active-level")){
                 document.querySelector(".active-level").classList.remove("active-level")
             }
-            document.getElementById(data.level).classList.add("active-level")
+            document.getElementById("mistakes").innerText = 0;
+            document.getElementById("modalLevel").innerText = data.level
+            document.getElementById(data.level.toLowerCase()).classList.add("active-level")
             for(let i = 0; i < 9; i++){
                 for(let j = 0; j < 9; j++){
                     document.getElementById(`game-cell-${i*9+(j+1)}`).setAttribute("filled", "false");
                     if(data.puzzle[i][j] !== 0){
                         document.getElementById(`game-cell-${i*9+(j+1)}`).innerText = data.puzzle[i][j]
                         document.getElementById(`game-cell-${i*9+(j+1)}`).setAttribute("filled", "true")
+                        document.getElementById(`game-cell-${i*9+(j+1)}`).classList.remove("empty")
                     }else{
                         document.getElementById(`game-cell-${i*9+(j+1)}`).innerHTML = `
                         <div class="pencil-cell">
@@ -96,6 +98,7 @@ function getSudoku(level){
                     </div>`
                     }
                     document.getElementById(`game-cell-${i*9+(j+1)}`).setAttribute("solution", data.board[i][j])
+                    document.getElementById(`game-cell-${i*9+(j+1)}`).classList.add("empty")
 
                 }
             }
@@ -220,7 +223,7 @@ document.getElementById("pencil-div").addEventListener("click", function(e){
                 if(document.getElementById("pencil-div").getAttribute("value") === "on"){
                     markDigitWithPencil(e.currentTarget.value)
                 }else{
-                    tryTolaceDigit(e.currentTarget.value);
+                    tryToPlaceDigit(e.currentTarget.value);
                 }
             }
         })
@@ -233,7 +236,7 @@ document.getElementById("pencil-div").addEventListener("click", function(e){
             document.querySelector(`.active-cell .p-c-${value}`).style.display = "flex"
         }
     }
-    function tryTolaceDigit(value){
+    function tryToPlaceDigit(value){
         if(document.querySelector(`.active-cell`).getAttribute("solution") !== value){
             document.getElementById("mistakes").style.color = "rgba(253, 138, 138, 0.6)"
             document.getElementById("mistakes").innerText = parseInt(document.getElementById("mistakes").innerText) + 1
@@ -250,9 +253,33 @@ document.getElementById("pencil-div").addEventListener("click", function(e){
         }else{
             document.querySelector(`.active-cell`).innerText = value
             document.querySelector(`.active-cell`).setAttribute("filled", "true")
-
+            document.querySelector(`.active-cell`).classList.remove("empty")
         }
+        isSolved();
     }
+//#endregion
+
+//#region isSolved()
+function isSolved(){
+    if(document.getElementsByClassName("empty").length === 0){
+        clearTimeout(parseInt(document.getElementById("time").getAttribute("timer")));
+        clearTimeout(parseInt(document.getElementById("time").getAttribute("drift")));
+        document.getElementById("solvedPuzzleModalLabel").innerHTML = '<i class="bi bi-trophy pe-1"></i> Congratulations'
+
+        document.getElementById("modalTime").innerText = document.getElementById("time").innerText
+
+        document.getElementById("modalMistake").innerText = document.getElementById("mistakes").innerText
+         openModal()
+    }
+}
+function openModal(){
+    const event = new MouseEvent("click", {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+      });
+    document.getElementById("openModal").dispatchEvent(event);
+}
 //#endregion
 
 //#region NEW GAME BUTTON
@@ -297,7 +324,12 @@ function startTimer(){
         if(limit){
             clearTimeout(parseInt(document.getElementById("time").getAttribute("timer")));
             clearTimeout(parseInt(document.getElementById("time").getAttribute("drift")));
-            document.getElementById("time").innerText = "0:00"
+            
+            document.getElementById("solvedPuzzleModalLabel").innerHTML = '<i class="bi bi-hourglass-bottom pe-1"></i> Time is up!'
+            document.getElementById("modalTime").innerText = document.getElementById("time").innerText
+    
+            document.getElementById("modalMistake").innerText = document.getElementById("mistakes").innerText
+            openModal()
         }
     }
 }

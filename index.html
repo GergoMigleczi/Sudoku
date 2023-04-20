@@ -9,6 +9,41 @@
 
     </head>
     <body>
+        <button id="openModal" type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#solvedPuzzleModal">
+        </button>
+        <div class="modal fade" id="solvedPuzzleModal" tabindex="-1" aria-labelledby="solvedPuzzleModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="solvedPuzzleModalLabel"><i class="bi bi-trophy pe-1"></i> Congratulations</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="d-flex">
+                    <i class="bi bi-stopwatch pe-2"></i>
+                    <p id="modalTime" class="m-0 p-0">0:00</p>
+                  </div>
+                  <div class="d-flex">
+                    <i class="bi bi-bandaid pe-2"></i>
+                    <p id="modalMistake" class="m-0 p-0">0:00</p>
+                  </div>
+                  <div class="d-flex">
+                    <i class="bi bi-speedometer2 pe-2"></i>
+                    <p id="modalLevel" class="m-0 p-0"></p>
+                  </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                        <p>New Game</p>
+                        <div class="d-flex">
+                            <button value="easy" class="secondary-bg rounded py-1 px-2 m-1 level-input" data-bs-dismiss="modal">Easy</button>
+                            <button value="medium" class="secondary-bg rounded py-1 px-2 m-1 level-input" data-bs-dismiss="modal">Medium</button>
+                            <button value="hard" class="secondary-bg rounded py-1 px-2 m-1 level-input" data-bs-dismiss="modal">Hard</button>
+                            <button value="expert" class="secondary-bg rounded py-1 px-2 m-1 level-input" data-bs-dismiss="modal">Expert</button>          
+                        </div>
+                </div>
+              </div>
+            </div>
+          </div>
         <main class="pt-5">
             <section class="site-max-width">
                 <div id="mistake-and-timer" class="d-flex pb-2 game-box-width justify-content-between">
@@ -1536,19 +1571,6 @@
                                 <button class="digit-btn rounded secondary-bg m-1" value="9">9</button>
                             </div>
                         </div>
-                        <!--
-                            <div class="mt-5">
-                            <div class="d-flex justify-content-between">
-                                <button id="easy" value="easy" class="secondary-bg rounded py-2 px-3 m-1 level-input">Easy</button>
-                                <button id="medium" value="medium" class="secondary-bg rounded py-2 px-3 m-1 level-input">Medium</button>
-                            </div>
-                            <di class="d-flex justify-content-between">
-                                <button id="hard" value="hard" class="secondary-bg rounded py-2 px-3 m-1 level-input">Hard</button>
-                                <button id="expert" value="expert" class="secondary-bg rounded py-2 px-3 m-1 level-input">Expert</button>
-                            </div>
-                        </div>
-                        -->
-                        
                     </div>
                 </div>
                 <div id="levels" class="d-flex justify-content-between game-box-width mt-3">

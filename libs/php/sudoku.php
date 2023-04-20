@@ -2,7 +2,7 @@
     $res = createSudoku();
     $puzzle = makePuzzle($res["board"], $_REQUEST["level"]);
 
-    echo json_encode(["board"=> $res["board"], "puzzle"=>$puzzle, "level"=>$_REQUEST["level"]]);
+    echo json_encode(["board"=> $res["board"], "puzzle"=>$puzzle, "level"=>ucwords($_REQUEST["level"])]);
     /*
     $board = $res["board"];
     for($i =0; $i < 9; $i++){

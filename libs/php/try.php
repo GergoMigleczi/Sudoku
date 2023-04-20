@@ -1,4 +1,4 @@
 <?php
 
-echo floor(18/9);
+echo ucwords("easy");
 ?>
