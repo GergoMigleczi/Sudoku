@@ -71,7 +71,7 @@ function createSudoku(){
     $board[4][4] = $numbers[0]; //placing the frst number
     $pencil = markOnPencil($board[4][4], $pencil, 4, 4, $board);
     
-    for($a=0; $a<81; $a++){
+    for($a=0; $a<80; $a++){
         $theLeastPossibleFits = 0;
         $row = 0;
         $col = 0;
